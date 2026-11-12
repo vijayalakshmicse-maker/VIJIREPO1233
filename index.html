@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Portfolio of a first-year Computer Science and Engineering student seeking a Software Developer Intern role.">
+  <title>Software Developer Intern Portfolio | First-year CSE Student</title>
+  <style>
+    :root {
+      --bg: #101820;
+      --accent: #68e0c0;
+      --text: #f4f7f6;
+      --muted: #c0cbc9;
+      --panel: #1a2932;
+      --line: #3a4c54;
+      --space: 24px;
+      --content: 1040px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-underline-offset: 4px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .page { width: min(calc(100% - 40px), var(--content)); margin: 0 auto; }
+    .eyebrow {
+      color: var(--accent);
+      font: 700 0.82rem/1.4 "Courier New", monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+    h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: -.035em; }
+    h1 { max-width: 800px; font-size: clamp(2.6rem, 8vw, 5.6rem); }
+    h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: var(--space); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 12px 0 0; color: var(--muted); }
+    .hero { min-height: 84vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-inner { position: relative; isolation: isolate; width: 100%; padding: 72px 0; }
+    .hero-copy { position: relative; z-index: 2; max-width: 760px; }
+    .hero h1 { margin-top: 18px; }
+    .hero-lede { max-width: 650px; color: var(--text); font-size: clamp(1.1rem, 2.2vw, 1.35rem); margin-top: 22px; }
+    .hero-note { margin-top: 12px; color: var(--muted); }
+    .work-link {
+      display: inline-block; margin-top: 30px; padding: 12px 18px;
+      border: 1px solid var(--accent); border-radius: 3px;
+      color: var(--accent); font-weight: 700; text-decoration: none;
+    }
+    .work-link:hover { background: var(--accent); color: var(--bg); }
+    .depth-scene {
+      position: absolute; z-index: 1; width: min(47vw, 480px); height: 390px;
+      right: -2%; top: 50%; transform: translateY(-50%);
+      perspective: 1000px; pointer-events: none;
+    }
+    .depth-card {
+      position: absolute; border: 1px solid rgba(104,224,192,.55);
+      background: linear-gradient(145deg, rgba(104,224,192,.13), rgba(26,41,50,.92));
+      border-radius: 14px; box-shadow: 0 28px 70px rgba(0,0,0,.28);
+      transform-style: preserve-3d; will-change: transform;
+    }
+    .depth-card.one { width: 72%; height: 72%; right: 4%; top: 9%; transform: rotateY(-24deg) rotateX(9deg) translateZ(-25px); }
+    .depth-card.two { width: 66%; height: 66%; right: 22%; top: 24%; transform: rotateY(19deg) rotateX(-7deg) translateZ(35px); }
+    .depth-card.three { width: 46%; height: 43%; right: 7%; top: 48%; transform: rotateY(-14deg) rotateX(8deg) translateZ(75px); }
+    .depth-mark {
+      position: absolute; left: 22px; top: 18px; color: var(--accent);
+      font: 700 1rem "Courier New", monospace; letter-spacing: .12em;
+    }
+    .depth-lines { position: absolute; left: 22px; right: 22px; bottom: 24px; display: grid; gap: 10px; }
+    .depth-lines span { height: 5px; border-radius: 5px; background: rgba(244,247,246,.2); }
+    .depth-lines span:nth-child(2) { width: 72%; }
+    .depth-lines span:nth-child(3) { width: 48%; }
+    .project-list { display: grid; gap: var(--space); }
+    .project {
+      padding: 26px; border: 1px solid var(--line); border-radius: 8px;
+      background: var(--panel);
+    }
+    .project h3 { color: var(--accent); margin-bottom: 16px; }
+    .case-lines { display: grid; gap: 8px; }
+    .case-lines p { margin: 0; color: var(--text); }
+    .case-lines strong { color: var(--muted); font-weight: 600; }
+    .proof { margin-top: 14px; color: var(--muted); }
+    .proof a { font-weight: 600; }
+    .skill-groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space); }
+    .skill-group { padding-top: 16px; border-top: 1px solid var(--line); }
+    .skill-group h3 { color: var(--accent); font-size: 1.05rem; letter-spacing: 0; }
+    .skill-group p { color: var(--text); margin-top: 8px; }
+    .credential-lines { display: grid; gap: 12px; }
+    .credential-lines p { margin: 0; color: var(--text); }
+    .credential-lines strong { color: var(--accent); }
+    .contact-line { color: var(--text); font-size: 1.15rem; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 22px; }
+    footer { padding: 24px 0 34px; color: var(--muted); font-size: .9rem; }
+    footer p { margin: 6px 0 0; font-size: .9rem; }
+    @media (max-width: 760px) {
+      .hero { min-height: 760px; align-items: flex-start; }
+      .hero-inner { padding-top: 68px; }
+      .depth-scene { width: 78vw; height: 300px; top: auto; bottom: 12px; right: -8%; transform: none; opacity: .72; }
+      .hero-copy { max-width: 100%; }
+      section { padding: 58px 0; }
+    }
+    @media (max-width: 520px) {
+      .page { width: min(calc(100% - 32px), var(--content)); }
+      .skill-groups { grid-template-columns: 1fr; }
+      .project { padding: 20px; }
+      .hero { min-height: 720px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+      .depth-card { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Software Developer Intern · Portfolio</div>
+          <h1 id="hero-title">First-year CSE student building practical software and web projects.</h1>
+          <p class="hero-lede">I build desktop applications and personal web experiences using Python, HTML and CSS, with a foundation in C, Java and React.</p>
+          <p class="hero-note">B.E. Computer Science and Engineering · Prince Shri Venkateshwara Padmavathy Engineering College</p>
+          <a class="work-link" href="#work">Explore selected work ↓</a>
+        </div>
+        <div class="depth-scene" aria-hidden="true">
+          <div class="depth-card one"><span class="depth-mark">BUILD / 01</span><div class="depth-lines"><span></span><span></span><span></span></div></div>
+          <div class="depth-card two"><span class="depth-mark">LEARN / 02</span><div class="depth-lines"><span></span><span></span><span></span></div></div>
+          <div class="depth-card three"><span class="depth-mark">SHIP / 03</span><div class="depth-lines"><span></span><span></span><span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <div class="eyebrow">01 / Selected work</div>
+      <h2 id="work-title">Work</h2>
+      <div class="project-list">
+        <article class="project">
+          <h3>Calculator App</h3>
+          <div class="case-lines">
+            <p><strong>Problem:</strong> Provide a desktop GUI for common calculations.</p>
+            <p><strong>Built:</strong> A GUI calculator supporting 6 operations, including square and percentage.</p>
+            <p><strong>Stack:</strong> Python, Tkinter.</p>
+            <p><strong>Result:</strong> Tested the app and improved app speed by 40%.</p>
+          </div>
+          <p class="proof">Proof: <a href="#" aria-label="Calculator App proof link to be added" onclick="return false;">[link to be added]</a></p>
+        </article>
+        <article class="project">
+          <h3>Personal Web Page</h3>
+          <div class="case-lines">
+            <p><strong>Problem:</strong> Present personal information, hobbies and a way to make contact.</p>
+            <p><strong>Built:</strong> A personal website with about, hobbies and contact form sections.</p>
+            <p><strong>Stack:</strong> HTML, CSS.</p>
+            <p><strong>Result:</strong> Hosted the site on GitHub Pages.</p>
+          </div>
+          <p class="proof">Proof: <a href="#" aria-label="Personal Web Page proof link to be added" onclick="return false;">[link to be added]</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="eyebrow">02 / Technical evidence</div>
+      <h2 id="skills-title">Skills</h2>
+      <div class="skill-groups">
+        <div class="skill-group"><h3>Programming</h3><p>C · Python · Java · React</p></div>
+        <div class="skill-group"><h3>Web</h3><p>HTML · CSS</p></div>
+        <div class="skill-group"><h3>Tools</h3><p>MS Excel · MS PowerPoint · Git</p></div>
+        <div class="skill-group"><h3>Working with others</h3><p>Communication · Teamwork</p></div>
+      </div>
+    </section>
+
+    <section id="credentials" aria-labelledby="credentials-title">
+      <div class="eyebrow">03 / Background</div>
+      <h2 id="credentials-title">Credentials</h2>
+      <div class="credential-lines">
+        <p><strong>Education:</strong> B.E. Computer Science and Engineering, Prince Shri Venkateshwara Padmavathy Engineering College, Chennai · 2025–2029 · CGPA 8.4 (1st semester)</p>
+        <p><strong>Education:</strong> HSC (12th), Government Higher Secondary School, Chennai · 2025 · 91%</p>
+        <p><strong>Education:</strong> SSLC (10th), Government High School, Chennai · 2023 · 88%</p>
+        <p><strong>Certification:</strong> Python for Beginners — NPTEL, 2026</p>
+        <p><strong>Achievement:</strong> Second prize, inter-college quiz competition, 2026</p>
+        <p><strong>Activities:</strong> Class Representative, First-year CSE Section B · Volunteered at the college technical symposium registration desk, registering about 150 students · Member of the Coding Club</p>
+        <p><strong>Languages:</strong> English · Tamil</p>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="eyebrow">04 / Get in touch</div>
+      <h2 id="contact-title">Contact</h2>
+      <p class="contact-line">Have a project or opportunity in mind? Send me a message.</p>
+      <div class="contact-links">
+        <a href="mailto:YOUR_EMAIL">Email</a>
+        <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <footer>
+        <p>AI-generated: portfolio text and visual layout. The 3D-style depth effect is decorative; no external 3D model or image is used.</p>
+      </footer>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const scene = document.querySelector('.depth-scene');
+      const cards = document.querySelectorAll('.depth-card');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!scene || reducedMotion.matches) return;
+
+      scene.addEventListener('pointermove', (event) => {
+        if (event.pointerType === 'touch') return;
+        const bounds = scene.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        cards.forEach((card, index) => {
+          const depth = (index + 1) * 5;
+          card.style.transform =
+            `rotateY(${(index - 1) * -13 + x * 9}deg) ` +
+            `rotateX(${(index - 1) * 5 - y * 8}deg) translateZ(${depth}px)`;
+        });
+      });
+      scene.addEventListener('pointerleave', () => {
+        cards[0].style.transform = 'rotateY(-24deg) rotateX(9deg) translateZ(-25px)';
+        cards[1].style.transform = 'rotateY(19deg) rotateX(-7deg) translateZ(35px)';
+        cards[2].style.transform = 'rotateY(-14deg) rotateX(8deg) translateZ(75px)';
+      });
+    })();
+  </script>
+</body>
+</html>
